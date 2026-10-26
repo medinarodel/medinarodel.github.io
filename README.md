@@ -10,6 +10,8 @@ Static, dependency-free portfolio built with semantic HTML, responsive CSS, and 
 - The share image `og-image.png` (1200×630) is rendered from `og/og-image.html` with headless Chrome at a 1200×630 window. Icons: `favicon.svg` (switches to a light tile in dark mode), `favicon-96.png`, `apple-touch-icon.png`, all using the "r." mark. The same mark is inline SVG in `index.html` and `markSvg` in `app.js`; change all of them together. Re-render the PNGs if the title or mark changes, and update `lastmod` in `sitemap.xml` when content changes.
 - The Contact answer links to Rodel’s email and the résumé PDF (`rodel-medina-resume.pdf`). The PDF is printed from `resume/resume.html` with headless Chrome (A4); update both together, using the same verified wording as the case studies. LinkedIn and GitHub are not added.
 
+- Google Analytics 4 (`G-ZHBFGYMHQ4`) loads only on `rodm.dev`, not on local servers, and only after the visitor clicks "Allow" in the small consent notice. The choice is saved in `localStorage` (`rodel-portfolio-analytics`), so the notice shows once. Enhanced measurement covers page views, file downloads, and outbound links. `app.js` adds three events: `view_project` (a case study is opened), `ask_topic` (the matched chat topic, never the typed text), and `contact_email` (the email link is clicked).
+
 The page uses no client screenshots or proprietary assets. Reduced-motion preferences disable entrance and status animations.
 
 ## Coding agents

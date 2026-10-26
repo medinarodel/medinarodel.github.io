@@ -37,6 +37,22 @@
         document.documentElement.dataset.theme = initialTheme;
       } catch {}
     </script>
+    <script>
+      window.loadAnalytics = function () {
+        if (location.hostname !== 'rodm.dev' || window.gtag) return;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('config', 'G-ZHBFGYMHQ4');
+        const ga = document.createElement('script');
+        ga.async = true;
+        ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZHBFGYMHQ4';
+        document.head.append(ga);
+      };
+      try {
+        if (localStorage.getItem('rodel-portfolio-analytics') === 'granted') window.loadAnalytics();
+      } catch {}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />

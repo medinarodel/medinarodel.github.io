@@ -13,6 +13,7 @@
   const themePreference = window.matchMedia('(prefers-color-scheme: dark)');
   let savedTheme = null;
   let pending = false;
+  const track = (name, params) => window.gtag?.('event', name, params);
 
   try {
     const storedTheme = localStorage.getItem('rodel-portfolio-theme');
@@ -182,6 +183,7 @@
   }
 
   function appendResponse(intent) {
+    track('ask_topic', { topic: intent });
     const article = el('article', 'message assistant-message');
     const avatar = el('div', 'assistant-avatar');
     avatar.innerHTML = markSvg;
@@ -274,6 +276,46 @@
     conversation.scrollTo({ top: 0, behavior: 'smooth' });
     input?.focus({ preventScroll: true });
   });
+
+  document.querySelectorAll('.work-case').forEach((item) => {
+    item.addEventListener('toggle', () => {
+      if (item.open) track('view_project', { project: item.id.replace('case-', '') });
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('a[href^="mailto:"]')) track('contact_email');
+  });
+
+  function setupAnalyticsConsent() {
+    if (window.location.hostname !== 'rodm.dev') return;
+    const consentKey = 'rodel-portfolio-analytics';
+    try {
+      if (localStorage.getItem(consentKey)) return;
+    } catch {
+      return;
+    }
+    const notice = el('div', 'consent-notice');
+    notice.setAttribute('role', 'region');
+    notice.setAttribute('aria-label', 'Analytics choice');
+    notice.append(el('p', '', 'This site uses Google Analytics cookies to count visits. Is that OK?'));
+    const actions = el('div', 'consent-actions');
+    const choose = (choice) => {
+      try { localStorage.setItem(consentKey, choice); } catch {}
+      notice.remove();
+      if (choice === 'granted') window.loadAnalytics?.();
+    };
+    const allow = el('button', 'consent-allow', 'Allow');
+    const decline = el('button', '', 'No thanks');
+    [allow, decline].forEach((button) => { button.type = 'button'; });
+    allow.addEventListener('click', () => choose('granted'));
+    decline.addEventListener('click', () => choose('denied'));
+    actions.append(allow, decline);
+    notice.append(actions);
+    document.body.append(notice);
+  }
+
+  setupAnalyticsConsent();
 
   document.querySelectorAll('[data-copy]').forEach((button) => {
     button.addEventListener('click', async () => {
