@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Rodel Medina — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 14mm 15mm 13mm; }
+  * { box-sizing: border-box; }
+  body { margin: 0; color: #20242a; font: 9.4pt/1.45 'DM Sans', Arial, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  a { color: #2456a4; text-decoration: none; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 9pt; border-bottom: 1.2pt solid #20242a; }
+  h1 { margin: 0; font: 700 21pt/1.1 'Manrope', sans-serif; letter-spacing: -.03em; }
+  .role { margin-top: 3pt; color: #2456a4; font-weight: 600; font-size: 10.5pt; }
+  .contact { text-align: right; color: #555d67; font-size: 8.8pt; line-height: 1.6; }
+  h2 { margin: 13pt 0 6pt; color: #858d97; font: 500 7.6pt 'DM Mono', monospace; letter-spacing: .12em; text-transform: uppercase; }
+  p { margin: 0 0 5pt; }
+  .summary { color: #3a4048; }
+  .skills { display: grid; grid-template-columns: 92pt 1fr; gap: 3pt 10pt; }
+  .skills b { font-weight: 600; }
+  .job { margin-bottom: 9pt; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .job-head b { font-size: 10.2pt; font-weight: 700; }
+  .dates { color: #555d67; font: 8.4pt 'DM Mono', monospace; white-space: nowrap; }
+  .job-sub { color: #555d67; margin: 1pt 0 5pt; }
+  .project { margin: 0 0 7pt; padding-left: 9pt; border-left: 1.5pt solid #dfe4ec; break-inside: avoid; }
+  .project-head { font-weight: 600; }
+  .project-head span { color: #858d97; font-weight: 400; }
+  ul { margin: 2pt 0 0; padding-left: 12pt; }
+  li { margin: 0 0 2pt; }
+  .stack { margin-top: 2pt; color: #6a727c; font: 7.8pt 'DM Mono', monospace; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Rodel Medina</h1>
+    <div class="role">Senior Full-Stack Software Engineer</div>
+  </div>
+  <div class="contact">
+    Philippines · Remote<br />
+    <a href="mailto:medinarodelsamson@gmail.com">medinarodelsamson@gmail.com</a><br />
+    <a href="https://rodm.dev">rodm.dev</a>
+  </div>
+</header>
+
+<h2>Summary</h2>
+<p class="summary">Senior full-stack engineer with 16+ years of professional experience, from database and backend design to the frontend products people use every day. Since 2023 I have worked as an independent contract engineer in long-term engagements with several clients in parallel, across healthcare software, hourly staffing, wholesale operations, recruitment data, and nonprofit field operations. I take features from first commit to production, write specs and handoff notes, and use AI-assisted development as part of a disciplined engineering practice.</p>
+
+<h2>Skills</h2>
+<div class="skills">
+  <b>Backend &amp; data</b><span>Ruby on Rails, Laravel / PHP, PostgreSQL, PostGIS, MySQL, Redis, Sidekiq, Solid Queue, Delayed Job, Elasticsearch, REST and GraphQL APIs, OpenAPI</span>
+  <b>Frontend &amp; mobile</b><span>React, Next.js, TypeScript, Vue 3, React Flow / xyflow, Redux Toolkit, React Native, Leaflet</span>
+  <b>AI &amp; integrations</b><span>LLM scoring, speech-to-text (Whisper), text-to-speech (ElevenLabs), Twilio voice and SMS, Stripe payments, webhooks, Salesforce, Bullhorn, HubSpot</span>
+  <b>Delivery</b><span>AWS, Heroku, Vercel, Cloudflare Workers, Docker, RSpec, Pest, Jest, Playwright, CI/CD, code review</span>
+</div>
+
+<h2>Experience</h2>
+
+<div class="job">
+  <div class="job-head"><b>Independent Contract Engineer</b><span class="dates">2023 — present</span></div>
+  <p class="job-sub">Long-term engagements, directly and through AlphagenIT.</p>
+
+  <div class="project">
+    <div class="project-head">GravyWork <span>· direct · hourly staffing platform</span></div>
+    <ul>
+      <li>Designed and built a separate AI service that runs automated phone interviews to assess workers’ skills, reducing manual screening for staff: generated speech questions, recorded answers, speech-to-text, LLM scoring, and signed webhooks back to the main platform.</li>
+      <li>Added reliability and fairness controls: model settings in config, late-recording handling, attempt lockouts, call audit logs, and admin health and re-score tools.</li>
+      <li>Worked across the Rails API, React admin portal, and React Native worker app: worker earnings, real-time chat, preferred staffing pools, and SMS, email, and push lifecycle messaging.</li>
+    </ul>
+    <div class="stack">Rails · Sidekiq · Twilio · ElevenLabs · Whisper · React · React Native</div>
+  </div>
+
+  <div class="project">
+    <div class="project-head">XPL <span>· via AlphagenIT · wholesale ordering and inventory</span></div>
+    <ul>
+      <li>Built the backend from the first commit through three years of development: a Laravel and PostgreSQL REST API with a service layer and scheduled jobs that automate order cycles and invoice updates.</li>
+      <li>Built an inventory ledger with reconciliation checks, price freezing at delivery, Google Sheets integration, and “act as” delegate access with a correct audit trail.</li>
+      <li>Added an OpenAPI contract with automated contract tests, and led a new Next.js frontend that uses the API through a server-side proxy.</li>
+    </ul>
+    <div class="stack">Laravel · PHP · PostgreSQL · Redis · Pest · OpenAPI · Next.js</div>
+  </div>
+
+  <div class="project">
+    <div class="project-head">NeuroFlow <span>· via AlphagenIT · healthcare SaaS workflow builder</span></div>
+    <ul>
+      <li>Established the frontend foundation for a no-code visual workflow builder and implemented a substantial part of it: canvas, custom node types, drag-and-drop, and node configuration panels.</li>
+      <li>Built branching with first-match and all-match logic and an automatic else path, non-blocking validation on the canvas, and the conversion between the editor graph and the backend workflow format.</li>
+    </ul>
+    <div class="stack">React · TypeScript · React Flow / xyflow · Redux Toolkit · Jest</div>
+  </div>
+
+  <div class="project">
+    <div class="project-head">Rover <span>· direct · Australian recruitment-data client</span></div>
+    <ul>
+      <li>Created and maintained scrapers for major job boards across Australia and New Zealand, feeding a Rails and Sidekiq pipeline with hourly merging by company, Elasticsearch search, and rule-based industry classification.</li>
+      <li>Designed and built the job-search API for client companies in Rails, and support their developers who integrate with it.</li>
+      <li>Built the frontend and backend of JobRover, an AI job-matching product, including the connection to its matching engine and Stripe billing: subscriptions, invoices, webhooks, refunds, and failed-payment handling.</li>
+      <li>Built CRM delivery integrations for Salesforce, Bullhorn, HubSpot, and RecruiterFlow, and an internal operations dashboard in Next.js and AG Grid on Cloudflare Workers.</li>
+    </ul>
+    <div class="stack">Rails · Sidekiq · PostgreSQL · Elasticsearch · Next.js · TypeScript</div>
+  </div>
+
+  <div class="project">
+    <div class="project-head">Field Reporting Platform <span>· Webb Integrated · reporting and data validation</span></div>
+    <ul>
+      <li>Independently built an ad hoc reporting engine: a Vue report builder whose JSON-Schema-checked definitions compile to parameterized, read-only SQL that respects each user’s data access, with saved reports, sharing, and CSV/Excel export.</li>
+      <li>Built an automated validation system: background checks for spikes, repeats, outliers, and peer differences, with nightly cached statistics, per-country settings, and a review hub.</li>
+    </ul>
+    <div class="stack">Rails · PostgreSQL · Vue 3 · Sidekiq · JSON Schema</div>
+  </div>
+
+  <div class="project">
+    <div class="project-head">Field Network Platform <span>· Webb Integrated · nonprofit field networks</span></div>
+    <ul>
+      <li>Built the server side of offline sync for the mobile app, and most of a shared form library that runs the same forms on web and React Native, with translations, GPS pin-drop, and direct uploads.</li>
+      <li>Built background bulk actions with audited cascading changes, a team hierarchy and tagging system, and a reusable table component with saved columns and cascading filters.</li>
+    </ul>
+    <div class="stack">Rails · Vue 3 · PostGIS · Sidekiq · TypeScript · React Native</div>
+  </div>
+
+  <div class="project">
+    <div class="project-head">Geographic Data Platform <span>· Webb Integrated · field survey mapping</span></div>
+    <ul>
+      <li>Built offline map and data packaging for a field survey app, and migrated a PostGIS boundary dataset and its dependent services to a new schema.</li>
+      <li>Built Vue and Leaflet map tools, import pipelines from outside survey systems, and webhook integration with a sister app.</li>
+    </ul>
+    <div class="stack">Rails · PostGIS · Vue 3 · TypeScript · Leaflet</div>
+  </div>
+</div>
+
+<div class="job">
+  <div class="job-head"><b>Microblink</b><span class="dates">2022 — 2023</span></div>
+  <p>Production applications for receipt processing, purchase validation, and data extraction, using Ruby on Rails and React, after Microblink acquired Sourcepad.</p>
+</div>
+
+<div class="job">
+  <div class="job-head"><b>Sourcepad</b><span class="dates">2010 — 2022</span></div>
+  <p>Full-stack applications for a range of clients, often in small autonomous teams. Extensive Ruby on Rails and React, Stripe payment integrations for several client projects, and AWS and Heroku deployments.</p>
+</div>
+</body>
+</html>
