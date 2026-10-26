@@ -144,7 +144,7 @@
 
   function addSummaryContent(body) {
     body.append(el('h2', '', 'Software engineering since 2010.'));
-    body.append(el('p', '', 'I’ve spent 16+ years building and evolving production applications: backend and data-heavy systems, interactive frontend products, integrations, and the engineering work that keeps them dependable.'));
+    body.append(el('p', '', 'Since then, I’ve been building and evolving production applications: backend and data-heavy systems, interactive frontend products, integrations, and the engineering work that keeps them dependable.'));
     body.append(el('p', '', 'Since 2023 I’ve worked as an independent contract engineer with several long-term clients. Each project at the top of this conversation opens a short case study.'));
     const facts = el('div', 'answer-facts');
     ['PRODUCTION SYSTEMS', 'BACKEND + FRONTEND', 'AI-ASSISTED PRACTICE'].forEach((fact) => facts.append(el('span', '', fact)));
